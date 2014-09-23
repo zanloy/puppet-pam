@@ -24,10 +24,10 @@ class pam::pamd::redhat {
     
     #File['/etc/ldap.conf'] -> File[$pam::params::ldap_conf]
 
-    file { '/etc/ldap.conf':
-      ensure  => link,
-      target  => $pam::params::ldap_conf,
-    }
+    #file { '/etc/ldap.conf':
+    #  ensure  => link,
+    #  target  => $pam::params::ldap_conf,
+    #}
 
   }
 
