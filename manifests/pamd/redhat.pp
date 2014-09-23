@@ -54,6 +54,16 @@ class pam::pamd::redhat {
 
       }
       
+      package { 'oddjob-mkhomedir':
+        ensure => present,
+      }
+
+      service { 'oddjobd':
+        ensure => running,
+        enable => true,
+        require => Package['oddjob-mkhomedir'],
+      }
+
     }
 
     default : {
