@@ -321,6 +321,9 @@ class pam::pamd (
     file { '/etc/sssd/sssd.conf':
       ensure => file,
       source => $sssd_conf,
+      owner => 'root',
+      group => 'root',
+      mode => 0600,
       require => Package['sssd'],
     }
 
