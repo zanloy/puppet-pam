@@ -54,10 +54,15 @@ class pam::pamd::redhat {
 
       }
       
+      service { 'messagebus':
+        ensure  => running,
+        enabled => true,
+      }
+
       service { 'oddjobd':
         ensure => running,
         enable => true,
-        require => Package['oddjob-mkhomedir'],
+        require => [Service['messagebus'], Package['oddjob-mkhomedir']],
       }
 
     }
