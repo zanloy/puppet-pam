@@ -56,7 +56,7 @@ class pam::pamd::redhat {
       
       service { 'messagebus':
         ensure  => running,
-        enabled => true,
+        enable  => true,
       }
 
       service { 'oddjobd':
